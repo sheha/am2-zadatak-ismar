@@ -1,12 +1,12 @@
 /* eslint consistent-return:0 */
 
-import express from 'express';
-import { error, appStarted } from './util//logger';
+const express = require('express');
+const logger = require('./util//logger');
 
-import { host as _host } from './util/argv';
-import port from './util//port';
-import setup from './middlewares/frontendMiddleware';
-import { resolve } from 'path';
+const argv = require('./util/argv');
+const port = require('./util//port');
+const setup = require('./middlewares/frontendMiddleware');
+const { resolve } = require('path');
 
 const app = express();
 
@@ -20,14 +20,14 @@ setup(app, {
 });
 
 // get the intended host and port number, use localhost and port 3000 if not provided
-const customHost = _host || process.env.HOST;
+const customHost = argv.host || process.env.HOST;
 const host = customHost || null; // Let http.Server use its default IPv6/4 host
 const prettyHost = customHost || 'localhost';
 
 // Start your app.
 app.listen(port, host, (err) => {
   if (err) {
-    return error(err.message);
+    return logger.error(err.message);
   }
-  appStarted(port, prettyHost);
+  logger.appStarted(port, prettyHost);
 });

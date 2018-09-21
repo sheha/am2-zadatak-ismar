@@ -7,7 +7,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import ReposList from 'components/ReposList';
 import './style.scss';
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -31,30 +30,17 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
     return (
       <article>
         <Helmet>
-          <title>Home Page</title>
-          <meta name="description" content="A React.js Boilerplate application homepage" />
+          <title>Events Home Page</title>
+          <meta name="description" content="events loader" />
         </Helmet>
         <div className="home-page">
           <section className="centered">
-            <h2>Start your next react project in seconds</h2>
-            <p>A minimal <i>React-Redux</i> boilerplate with all the best practices</p>
+            <h2>TEST TEST TEST</h2>
+            <p>XXXXXXXXXXXXX<i>React-Redux</i> XXXXXXXXXXXXXXX</p>
           </section>
           <section>
             <h2>Try me!</h2>
-            <form onSubmit={this.props.onSubmitForm}>
-              <label htmlFor="username">
-              Show Github repositories by
-                <span className="at-prefix">@</span>
-                <input
-                  id="username"
-                  type="text"
-                  placeholder="flexdinesh"
-                  value={this.props.username}
-                  onChange={this.props.onChangeUsername}
-                />
-              </label>
-            </form>
-            <ReposList {...reposListProps} />
+
           </section>
         </div>
       </article>

@@ -6,6 +6,7 @@
     "type": "git",
     "url": "git://github.com/sheha/am2-zadatak-ismar.git"
   },
+  "license": "Beerware",
   "engines": {
     "npm": ">=3",
     "node": ">=5"

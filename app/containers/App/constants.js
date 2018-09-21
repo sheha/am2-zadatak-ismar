@@ -6,7 +6,7 @@
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT';
  */
 
-export const LOAD_REPOS = 'boilerplate/App/LOAD_REPOS';
-export const LOAD_REPOS_SUCCESS = 'boilerplate/App/LOAD_REPOS_SUCCESS';
-export const LOAD_REPOS_ERROR = 'boilerplate/App/LOAD_REPOS_ERROR';
+export const LOAD_EVENTS = 'boilerplate/App/LOAD_EVENTS';
+export const LOAD_EVENTS_SUCCESS = 'boilerplate/App/LOAD_EVENTS_SUCCESS';
+export const LOAD_EVENTS_ERROR = 'boilerplate/App/LOAD_EVENTS_ERROR';
 export const DEFAULT_LOCALE = 'en';
