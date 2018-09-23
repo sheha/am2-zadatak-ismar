@@ -21,7 +21,6 @@ const App = () => (
     </Helmet>
     <Header />
     <Switch>
-      <Route exact path="/" component={HomePage} />
       <Route path="" component={NotFoundPage} />
     </Switch>
   </div>
