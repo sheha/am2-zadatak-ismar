@@ -1,62 +1,95 @@
 /*
- * App Actions
- *
- * Since this boilerplate uses a uni-directional data flow,
- * specifically redux,
- * these actions are one and only way to actually influence and change state.
- *
- *
- * Registering a new action:
- * 1) Import your constant
- * 2) Add a function like this:
- *    export function yourAction(var) {
- *        return { type: YOUR_ACTION_CONSTANT, var: var }
- *    }
+ * REGISTERED REDUX STATE CHANGING ACTIONS
  */
 
 import {
   LOAD_EVENTS,
   LOAD_EVENTS_SUCCESS,
   LOAD_EVENTS_ERROR,
+  LOAD_SLIDER_EVENTS,
+  LOAD_SLIDER_EVENTS_SUCCESS,
+  LOAD_SLIDER_EVENTS_ERROR,
+  SUBSCRIBE_NEWSLETTER,
+  SUBSCRIBE_NEWSLETTER_SUCCESS,
+  SUBSCRIBE_NEWSLETTER_ERROR
 } from './constants';
 
 /**
- * Load the repositories, this action starts the request saga
- *
- * @return {object} An action object with a type of LOAD_EVENTS
+ *  SLIDER EVENTS
  */
+
+export function loadSliderEvents() {
+  return {
+    type: LOAD_SLIDER_EVENTS,
+  };
+}
+
+
+export function sliderEventsLoaded(sliderEvents) {
+  return {
+    type: LOAD_SLIDER_EVENTS_SUCCESS,
+    sliderEvents,
+  };
+}
+
+
+export function sliderEventsLoadingError(error) {
+  return {
+    type: LOAD_SLIDER_EVENTS_ERROR,
+    error,
+  };
+}
+
+
+/**
+ *   UPCOMING EVENTS
+ */
+
+
 export function loadEvents() {
   return {
     type: LOAD_EVENTS,
   };
 }
 
-/**
- * Dispatched when the repositories are loaded by the request saga
- *
- * @param  {array} repos The repository data
- * @param  {string} username The current username
- *
- * @return {object}      An action object with a type of LOAD_EVENTS_SUCCESS passing the repos
- */
-export function eventsLoaded(repos, username) {
+
+export function eventsLoaded(events) {
   return {
     type: LOAD_EVENTS_SUCCESS,
-    repos,
-    username,
+    events,
+  };
+}
+
+
+export function eventsLoadingError(error) {
+  return {
+    type: LOAD_EVENTS_ERROR,
+    error,
   };
 }
 
 /**
- * Dispatched when loading the repositories fails
- *
- * @param  {object} error The error
- *
- * @return {object}       An action object with a type of LOAD_EVENTS_ERROR passing the error
+ *  SUBSCRIPTION
  */
-export function eventsLoadingError(error) {
+
+
+export function newsletterSubscribe() {
   return {
-    type: LOAD_EVENTS_ERROR,
+    type: SUBSCRIBE_NEWSLETTER,
+  };
+}
+
+
+export function newsletterSubscribeSuccess(subscription) {
+  return {
+    type: SUBSCRIBE_NEWSLETTER_SUCCESS,
+    subscription,
+  };
+}
+
+export function newsletterSubscribeError(error) {
+  return {
+    type: SUBSCRIBE_NEWSLETTER_ERROR,
     error,
   };
 }

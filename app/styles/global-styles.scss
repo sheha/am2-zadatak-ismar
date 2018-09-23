@@ -4,22 +4,48 @@ body {
   width: 100%;
 }
 
-body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-body.fontLoaded {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
 #app {
   background-color: #fafafa;
   min-height: 100%;
   min-width: 100%;
 }
 
-p,
-label {
-  font-family: Georgia, Times, 'Times New Roman', serif;
-  line-height: 1.5em;
+
+
+$font-families: 'Radikal','Radikal-Light', 'Radikal-Bold', 'Helvetica';
+$fonts-url-path: '../fonts';
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('#{$fonts-url-path}/Helvetica.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
+
+
+@font-face {
+  font-family: 'Radikal-Light';
+  src:  url('#{$fonts-url-path}/Radikal-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Radikal';
+  src: url('#{$fonts-url-path}/Radikal.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Radikal-Bold';
+  src:url('#{$fonts-url-path}/Radikal-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: $font-families;
+}
+
 }

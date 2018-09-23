@@ -8,10 +8,6 @@ const selectGlobal = (state) => state.get('global');
 
 const selectRoute = (state) => state.get('route');
 
-const makeSelectCurrentUser = () => createSelector(
-  selectGlobal,
-  (globalState) => globalState.get('currentUser')
-);
 
 const makeSelectLoading = () => createSelector(
   selectGlobal,
@@ -23,9 +19,14 @@ const makeSelectError = () => createSelector(
   (globalState) => globalState.get('error')
 );
 
-const makeSelectRepos = () => createSelector(
+const makeSelectSliderEvents = () => createSelector(
   selectGlobal,
-  (globalState) => globalState.getIn(['userData', 'repositories'])
+  (globalState) => globalState.getIn(['sliderEvents', 'events'])
+);
+
+const makeSelectEvents = () => createSelector(
+  selectGlobal,
+  (globalState) => globalState.getIn(['events', 'upcoming'])
 );
 
 const makeSelectLocation = () => createSelector(
@@ -35,9 +36,9 @@ const makeSelectLocation = () => createSelector(
 
 export {
   selectGlobal,
-  makeSelectCurrentUser,
   makeSelectLoading,
   makeSelectError,
-  makeSelectRepos,
+  makeSelectEvents,
+  makeSelectSliderEvents,
   makeSelectLocation,
 };

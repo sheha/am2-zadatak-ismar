@@ -1,24 +1,21 @@
 /**
- *
  * App skeleton
- *
  */
 
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Switch, Route } from 'react-router-dom';
 
-import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header';
 
 import './style.scss';
 
 const App = () => (
-  <div className="app-wrapper">
+  <div className="app">
     <Helmet
-      titleTemplate="%s - Zadatak Ismar"
-      defaultTitle=""
+      titleTemplate="%s - Zadatak ::: Ismar Sehic "
+      defaultTitle="AM2 Studio"
     >
       <meta name="description" content="Interview assignment built around react.js redux boilerplate" />
     </Helmet>
