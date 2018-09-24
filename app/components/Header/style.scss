@@ -1,0 +1,43 @@
+.header{
+    display: flex;
+    margin-bottom: 1rem;
+    margin-top: 3px;
+    &__logo{
+        display: flex;
+        width: 50%;
+        justify-content: center;
+        height: 3rem;
+
+    }
+    nav{
+        display: flex;
+        width: 50%;
+        ul{
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            width: 80%;
+            li{
+                display: flex;
+                align-items: center;
+                font-family: "radical-light";
+                font-size: 0.7rem;
+                flex-grow: 1;
+                justify-content: center;
+                margin: 0 2%;
+                cursor: pointer;
+                &.active{
+                    color: #ff4868;
+                    border-top: 3px solid #ff4868;
+                    margin-top: -3px;
+                }
+                &:hover{
+                    color: #ff4868;
+                    border-top: 3px solid #ff4868;
+                    margin-top: -3px;
+                }
+            }
+        }
+    }
+}

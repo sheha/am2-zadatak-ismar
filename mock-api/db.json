@@ -1,0 +1,73 @@
+{
+    "events": [
+      {
+        "id": 1,
+        "name": "House of Borgeous Tour",
+        "address": "750 Pacific Blvd",
+        "city":"Vancouver",
+        "region": "BC",
+        "country":"Canada",
+        "email":"info@events.com" ,
+        "imgurl":"event1_small.jpg",
+        "date":"May/22/2019"
+      },
+      {
+        "id": 2,
+        "name": "Vinai at Harbour Event Centre",
+        "address": "Harbour Event Centre",
+        "city":"Vancouver",
+        "region": "BC",
+        "country":"Canada",
+        "email":"info@events.com" ,
+        "imgurl":"event2_small.jpg",
+        "date": "April/17/2019"
+      },
+      {
+        "id": 3,
+        "name": "Kultur Shock at BeerFest 2019",
+        "address": "Zetra Concert Hall",
+        "city":"Sarajevo",
+        "region": "",
+        "email":"info@events.com" ,
+        "imgurl":"event3_small.jpg",
+        "date":"August/9/2019"
+      }
+    ],
+
+    "sliderEvents":[
+        {
+            "id": 1,
+            "imgurl":"event1.jpg",
+            "date":"May 1 2019",
+            "caption":"Event 1"
+        },
+        {
+            "id": 2,
+            "imgurl":"event2.jpg",
+            "date":"May 22 2019",
+            "caption":"Event 2"
+        },
+        {
+            "id": 3,
+            "imgurl":"event3.jpg",
+            "date":"May 29 2019",
+            "caption":"Event 3"
+        }
+
+    ],
+    "subscriptions":[
+        {
+            "id":1,
+            "email":"test@blah.com"
+        },
+        {
+            "id":2,
+            "email":"test1@blah.com"
+        },
+        {
+            "id":3,
+            "email":"test2@blah.com"
+        }
+
+    ]
+  }
