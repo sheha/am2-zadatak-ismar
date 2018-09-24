@@ -8,17 +8,15 @@ import {
   makeSelectLoading,
   makeSelectError
 } from '../App/selectors';
-import { loadSliderEvents, loadEvents } from './actions';
-import { makeSelectSliderEvents, makeSelectEvent } from './selectors';
+import { loadEvents } from './actions';
+import { makeSelectEvents } from './selectors';
 
 import reducer from './reducer';
-import saga from './saga';
+import saga  from './saga';
 import HomePage from './HomePage';
 
 const mapDispatchToProps = (dispatch) => ({
-  onHomePageLoad: () => {
-    dispatch(loadSliderEvents());
-  },
+
   onLoadMoreEventsClick: (evt) => {
     if (evt !== undefined && evt.preventDefault) evt.preventDefault();
     dispatch(loadEvents());
@@ -26,8 +24,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = createStructuredSelector({
-  sliderEvents: makeSelectSliderEvents(),
-  events: makeSelectEvent(),
+  events: makeSelectEvents(),
   loading: makeSelectLoading(),
   error: makeSelectError()
 });

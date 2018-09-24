@@ -34,27 +34,6 @@
       }
     ],
 
-    "sliderEvents":[
-        {
-            "id": 1,
-            "imgurl":"event1.jpg",
-            "date":"May 1 2019",
-            "caption":"Event 1"
-        },
-        {
-            "id": 2,
-            "imgurl":"event2.jpg",
-            "date":"May 22 2019",
-            "caption":"Event 2"
-        },
-        {
-            "id": 3,
-            "imgurl":"event3.jpg",
-            "date":"May 29 2019",
-            "caption":"Event 3"
-        }
-
-    ],
     "subscriptions":[
         {
             "id":1,

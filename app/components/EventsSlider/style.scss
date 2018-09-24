@@ -1,4 +1,5 @@
 .slider {
+  height: 100%;
   overflow: hidden;
   position: relative;
   display: -webkit-box;
@@ -45,6 +46,8 @@
       -ms-flex-positive: 1;
           flex-grow: 1;
 }
+
+
 
 .slider__nav {
   -webkit-align-content: center;

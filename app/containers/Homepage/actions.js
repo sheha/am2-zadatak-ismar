@@ -3,43 +3,12 @@
  */
 
 import {
-  LOAD_SLIDER_EVENTS,
-  LOAD_SLIDER_EVENTS_SUCCESS,
-  LOAD_SLIDER_EVENTS_ERROR,
+
   LOAD_EVENTS,
   LOAD_EVENTS_SUCCESS,
   LOAD_EVENTS_ERROR,
 } from './constants';
 
-
-/**
- *  SLIDER EVENTS
- */
-
-export function loadSliderEvents() {
-  return {
-    type: LOAD_SLIDER_EVENTS,
-  };
-}
-
-
-export function sliderEventsLoaded(sliderEvents) {
-  return {
-    type: LOAD_SLIDER_EVENTS_SUCCESS,
-    sliderEvents,
-  };
-}
-
-
-export function sliderEventsLoadingError(error) {
-  return {
-    type: LOAD_SLIDER_EVENTS_ERROR,
-    error,
-  };
-}
-/**
- *   UPCOMING EVENTS
- */
 
 export function loadEvents() {
   return {

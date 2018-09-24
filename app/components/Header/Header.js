@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Collapse,
   Navbar,
@@ -57,7 +58,10 @@ class Header extends React.Component { // eslint-disable-line react/prefer-state
         </NavbarBrand>
         <nav>
             <ul>
-                <li class="active">HOME</li>
+            <li className="active">
+              <Link to="/">HOME</Link>
+
+              </li>
                 <li>EVENTS</li>
                 <li>MEDIA</li>
                 <li>CONTRACT</li>

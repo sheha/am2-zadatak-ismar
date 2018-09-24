@@ -1,24 +1,21 @@
-
+import React from 'react';
+import './style.scss';
 class EventsSlider extends React.Component {
 
-  getDefaultProps() {
-    return {
-      loop: false,
+  constructor(props) {
+    super(props)
+    this.state = { loop: false,
       selected: 0,
       showArrows: true,
       showNav: true,
-    };
-  }
-
-  getInitialState() {
-    return {
       dragStart: 0,
       dragStartTime: new Date(),
       index: 0,
       lastIndex: 0,
       transition: false,
-    };
+    }
   }
+
 
   componentWillMount() {
     const { selected } = this.props;
@@ -50,7 +47,7 @@ class EventsSlider extends React.Component {
       dragStart: x,
       dragStartTime: new Date(),
       transition: false,
-      slideWidth: ReactDOM.findDOMNode(this.refs.EventsSlider).offsetWidth,
+      slideWidth: ReactDOM.findDOMNode(this.refs.slider).offsetWidth,
     });
   }
 
@@ -141,7 +138,7 @@ class EventsSlider extends React.Component {
     const { lastIndex } = this.state;
 
     const nav = children.map((slide, i) => {
-      const buttonClasses = i === lastIndex ? 'EventsSlider__nav_button EventsSlider__nav_button--active' : 'EventsSlider__nav_button';
+      const buttonClasses = i === lastIndex ? 'slider__nav_button slider__nav_button--active' : 'slider__nav_button';
       return (
         <button
           className={buttonClasses}
@@ -151,7 +148,7 @@ class EventsSlider extends React.Component {
     })
 
     return (
-      <div className='EventsSlider__nav'>{nav}</div>
+      <div className='slider__nav'>{nav}</div>
     );
   }
 
@@ -162,17 +159,17 @@ class EventsSlider extends React.Component {
       showNav,
     } = this.props;
     const { lastIndex } = this.state;
-    const arrowsClasses = showNav ? 'EventsSlider__arrows' : 'EventsSlider__arrows EventsSlider__arrows--noNav';
+    const arrowsClasses = showNav ? 'slider__arrows' : 'slider__arrows slider__arrows--noNav';
 
     return (
       <div className={arrowsClasses}>
         {loop || lastIndex > 0 ?
           <button
-            className='EventsSlider__arrow EventsSlider__arrow--left'
+            className='slider__arrow slider__arrow--left'
             onClick={(event) => this.goToSlide(lastIndex - 1, event)} /> : null}
         {loop || lastIndex < children.length - 1 ?
           <button
-            className='EventsSlider__arrow EventsSlider__arrow--right'
+            className='slider__arrow slider__arrow--right'
             onClick={(event) => this.goToSlide(lastIndex + 1, event)} /> : null}
       </div>
     );
@@ -195,15 +192,15 @@ class EventsSlider extends React.Component {
       width: `${100 * children.length}%`,
       transform: `translateX(${-1 * index * (100 / children.length)}%)`,
     };
-    const slidesClasses = transition ? 'EventsSlider__slides EventsSlider__slides--transition' : 'EventsSlider__slides';
+    const slidesClasses = transition ? 'slider__slides slider__slides--transition' : 'slider__slides';
 
     return (
-      <div className='EventsSlider' ref='EventsSlider'>
+      <div className='slider' ref='slider'>
         {showArrows ? this.renderArrows() : null}
         {showNav ? this.renderNav() : null}
 
         <div
-          className='EventsSlider-inner'
+          className='slider__inner'
           onTouchStart={(event) => this.handleDragStart(event, true)}
           onTouchMove={(event) => this.handleDragMove(event, true)}
           onTouchEnd={() => this.handleDragEnd(true)}>
