@@ -1,76 +1,89 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {
-  Collapse,
-  Navbar,
-  NavbarToggler,
   NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
 } from 'reactstrap';
+import MediaQuery from 'react-responsive';
 
 import './style.scss';
 
 import Logo from './images/logo.svg';
 
 class Header extends React.Component { // eslint-disable-line react/prefer-stateless-function
-  constructor (props) {
-    super(props);
 
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      isOpen: false
-    };
-  }
-  toggle() {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
   render() {
     return (
-      <div className="header">
-        {/* <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">
-            <img className={`header__logo`} alt="logo" src={`${Logo}`}/>
-          </NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" tabs>
-              <NavItem>
-                <NavLink href="/">HOME</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink >EVENTS</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink >MEDIA</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink >CONTRACT</NavLink>
-              </NavItem>
-              </Nav>
-          </Collapse>
-        </Navbar> */}
-          <NavbarBrand href="/">
-            <img className={`header__logo`} alt="logo" src={`${Logo}`}/>
-        </NavbarBrand>
-        <nav>
-            <ul>
-            <li className="active">
-              <Link to="/">HOME</Link>
+      <div>
+        <MediaQuery query={"(max-width: 767px)"}>
+        <div className="header">
 
-              </li>
+            <nav className="mobile">
+              <ul className="mobile__nav">
+                <li className="active">
+                  <Link to="/">HOME</Link>
+
+                </li>
                 <li>EVENTS</li>
                 <li>MEDIA</li>
                 <li>CONTRACT</li>
-                <li>ABOUT US</li>
-            </ul>
-        </nav>
-      </div>
+                <li style={{ whiteSpace: "nowrap" }}>ABOUT US</li>
+              </ul>
+            </nav>
+          </div>
 
-    );}
+        </MediaQuery>
+        <MediaQuery query={"(min-width: 768px) and (max-width: 1024px)"}>
+          <div className="header">
+
+
+            <nav className="mobile">
+              <ul className="mobile__nav">
+                <li className="active">
+                  <Link to="/">HOME</Link>
+
+                </li>
+                <li>EVENTS</li>
+                <li>MEDIA</li>
+                <li>CONTRACT</li>
+                <li style={{ whiteSpace: "nowrap" }}>ABOUT US</li>
+              </ul>
+            </nav>
+          </div>
+        </MediaQuery>
+        <MediaQuery query={"(min-width: 1025px)"}>
+          <div className="header">
+            <NavbarBrand href="/">
+              <img className={`header__logo`} alt="logo" src={`${Logo}`} />
+            </NavbarBrand>
+
+            <div className="header__spacing"></div>
+            <nav>
+              <ul>
+                <li className="active">
+                  <Link to="/">HOME</Link>
+
+                </li>
+                <li>EVENTS</li>
+                <li>MEDIA</li>
+                <li>CONTRACT</li>
+                <li style={{ whiteSpace: "nowrap" }}>ABOUT US</li>
+              </ul>
+            </nav>
+          </div>
+        </MediaQuery>
+
+
+
+      </div>
+      // <MediaQuery query={"(max-width: 767px)"}></MediaQuery>
+      // <MediaQuery  query={"(min-width: 768px) and (max-width: 1024px)"}></MediaQuery>
+
+
+
+
+
+    );
+  }
 
 }
 

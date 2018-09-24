@@ -46,8 +46,7 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
             selected={0}>
             {sliderPreload.map((slide, i) => {
               return (
-                <div key={i} style={{ backgroundImage: `url(${slide.imgurl})`, backgroundSize:"contain", paddingTop:"10%" }}>{slide.caption}</div>
-                // <div key={i} > <img src={slide.imgurl} alt=""/>{slide.caption}</div>
+                <div key={i} style={{ backgroundImage: `url(${slide.imgurl})`, backgroundSize:"contain", paddingTop:"10%", height:"0%" }}>{slide.caption}</div>
               );
             })}
           </EventsSlider>
