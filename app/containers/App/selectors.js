@@ -19,16 +19,6 @@ const makeSelectError = () => createSelector(
   (globalState) => globalState.get('error')
 );
 
-const makeSelectSliderEvents = () => createSelector(
-  selectGlobal,
-  (globalState) => globalState.getIn(['sliderEvents', 'events'])
-);
-
-const makeSelectEvents = () => createSelector(
-  selectGlobal,
-  (globalState) => globalState.getIn(['events', 'upcoming'])
-);
-
 const makeSelectLocation = () => createSelector(
   selectRoute,
   (routeState) => routeState.get('location').toJS()
@@ -38,7 +28,5 @@ export {
   selectGlobal,
   makeSelectLoading,
   makeSelectError,
-  makeSelectEvents,
-  makeSelectSliderEvents,
   makeSelectLocation,
 };

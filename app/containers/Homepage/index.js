@@ -3,29 +3,31 @@ import { compose } from 'redux';
 import { createStructuredSelector } from 'reselect';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
+
 import {
-  makeSelectRepos,
   makeSelectLoading,
   makeSelectError
-} from 'containers/App/selectors';
-import { loadRepos } from '../App/actions';
-import { changeUsername } from './actions';
-import { makeSelectUsername } from './selectors';
+} from '../App/selectors';
+import { loadSliderEvents, loadEvents } from './actions';
+import { makeSelectSliderEvents, makeSelectEvent } from './selectors';
+
 import reducer from './reducer';
 import saga from './saga';
 import HomePage from './HomePage';
 
 const mapDispatchToProps = (dispatch) => ({
-  onChangeUsername: (evt) => dispatch(changeUsername(evt.target.value)),
-  onSubmitForm: (evt) => {
+  onHomePageLoad: () => {
+    dispatch(loadSliderEvents());
+  },
+  onLoadMoreEventsClick: (evt) => {
     if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-    dispatch(loadRepos());
+    dispatch(loadEvents());
   }
 });
 
 const mapStateToProps = createStructuredSelector({
-  repos: makeSelectRepos(),
-  username: makeSelectUsername(),
+  sliderEvents: makeSelectSliderEvents(),
+  events: makeSelectEvent(),
   loading: makeSelectLoading(),
   error: makeSelectError()
 });

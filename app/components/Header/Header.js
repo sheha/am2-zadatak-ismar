@@ -29,10 +29,10 @@ class Header extends React.Component { // eslint-disable-line react/prefer-state
   }
   render() {
     return (
-      <div className="header__container">
-        <Navbar color="light" light expand="md">
+      <div className="header">
+        {/* <Navbar color="light" light expand="md">
           <NavbarBrand href="/">
-            <img className={`header__logo`} alt="LinkApp" src={`${Logo}`}/>
+            <img className={`header__logo`} alt="logo" src={`${Logo}`}/>
           </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -51,7 +51,19 @@ class Header extends React.Component { // eslint-disable-line react/prefer-state
               </NavItem>
               </Nav>
           </Collapse>
-        </Navbar>
+        </Navbar> */}
+          <NavbarBrand href="/">
+            <img className={`header__logo`} alt="logo" src={`${Logo}`}/>
+        </NavbarBrand>
+        <nav>
+            <ul>
+                <li class="active">HOME</li>
+                <li>EVENTS</li>
+                <li>MEDIA</li>
+                <li>CONTRACT</li>
+                <li>ABOUT US</li>
+            </ul>
+        </nav>
       </div>
 
     );}

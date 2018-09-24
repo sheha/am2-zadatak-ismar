@@ -8,7 +8,7 @@
         "region": "BC",
         "country":"Canada",
         "email":"info@events.com" ,
-        "imgurl":"",
+        "imgurl":"event1_small.jpg",
         "date":"May/22/2019"
       },
       {
@@ -19,7 +19,7 @@
         "region": "BC",
         "country":"Canada",
         "email":"info@events.com" ,
-        "imgurl":"",
+        "imgurl":"event2_small.jpg",
         "date": "April/17/2019"
       },
       {
@@ -29,7 +29,7 @@
         "city":"Sarajevo",
         "region": "",
         "email":"info@events.com" ,
-        "imgurl":"",
+        "imgurl":"event3_small.jpg",
         "date":"August/9/2019"
       }
     ],
@@ -37,18 +37,21 @@
     "sliderEvents":[
         {
             "id": 1,
-            "imgurl":"",
-            "date":"May 22 2019"
+            "imgurl":"event1.jpg",
+            "date":"May 1 2019",
+            "caption":"Event 1"
         },
         {
-            "id": 1,
-            "imgurl":"",
-            "date":"May 22 2019"
+            "id": 2,
+            "imgurl":"event2.jpg",
+            "date":"May 22 2019",
+            "caption":"Event 2"
         },
         {
-            "id": 1,
-            "imgurl":"",
-            "date":"May 22 2019"
+            "id": 3,
+            "imgurl":"event3.jpg",
+            "date":"May 29 2019",
+            "caption":"Event 3"
         }
 
     ],
