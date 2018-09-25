@@ -2,6 +2,7 @@
 import React from 'react';
 import EventsSlider from 'components/EventsSlider';
 import LoadEventsButton from 'components/LoadEventsButton';
+import EventsLoader from "components/EventsLoader";
 import './style.scss';
 
 
@@ -36,34 +37,27 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
   render() {
     const { loading, error } = this.props;
     //console.log(this.props)
-    return (
-      <div className="root__container">
-        <div className="slider__container">
-          <EventsSlider
-            loop
-            showNav
-            showArrows
-            selected={0}
-          >
-            {sliderPreload.map((slide, i) => (
-              <div
-                key={i}
-                style={{
-                  backgroundImage: `url(${slide.imgurl})`, backgroundSize: 'cover', paddingTop: '10%', height: '0%'
-                }}
-              >
-              </div>
-            ))}
-          </EventsSlider>
-        </div>
-
-        <div className="events__container">
-          <LoadEventsButton {...this.props} />
-
-        </div>
-
+    return <div className="root__container">
+      <div className="slider__container">
+        <EventsSlider loop showNav showArrows selected={0}>
+          {sliderPreload.map((slide, i) => (
+            <div
+              key={i}
+              style={{
+                backgroundImage: `url(${slide.imgurl})`,
+                backgroundSize: "cover",
+                paddingTop: "10%",
+                height: "0%"
+              }}
+            />
+          ))}
+        </EventsSlider>
       </div>
 
-    );
+      <div className="events__container">
+        <LoadEventsButton />
+        <EventsLoader onLoadMoreEventsClick={this.props.onLoadMoreEventsClick} />
+      </div>
+    </div>;
   }
 }

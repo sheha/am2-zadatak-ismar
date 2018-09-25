@@ -1,10 +1,10 @@
 import React from "react";
 import { Collapse } from "react-collapse";
-// import EventsLoader from "components/EventsLoader";
+
 
 import "./style.scss";
 
-export default class LoadEventsButton extends React.PureComponent {
+class LoadEventsButton extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = { isOpened: false, height: 100, fixedHeight: 200 };
@@ -20,7 +20,7 @@ export default class LoadEventsButton extends React.PureComponent {
     const { isOpened, height, fixedHeight } = this.state;
 
     return (
-      <div {...this.props}>
+      <div>
         <div className="load_events">
           <input
             className="load_events__button"
@@ -32,10 +32,11 @@ export default class LoadEventsButton extends React.PureComponent {
 
         <Collapse isOpened={isOpened} fixedHeight={fixedHeight}>
           <div style={{ height }} className="blob">
-            {/* <EventsLoader props={this.props} /> */}
+
           </div>
         </Collapse>
       </div>
     );
   }
 }
+export default LoadEventsButton;

@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 
-export default class EventsSlider extends React.Component {
+class EventsLoader extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isOpened: false, height: 100, fixedHeight: 200 };
@@ -10,4 +10,14 @@ export default class EventsSlider extends React.Component {
   componentDidMount() {
     this.props.onLoadMoreEventsClick();
   }
+
+  render() {
+    return (
+      null
+
+    )
+
+  }
 }
+
+export default EventsLoader;
