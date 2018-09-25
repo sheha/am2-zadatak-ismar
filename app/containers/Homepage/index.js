@@ -12,7 +12,7 @@ import { loadEvents } from './actions';
 import { makeSelectEvents } from './selectors';
 
 import reducer from './reducer';
-import saga  from './saga';
+import saga from './saga';
 import HomePage from './HomePage';
 
 const mapDispatchToProps = (dispatch) => ({

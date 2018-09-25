@@ -3,7 +3,7 @@
  */
 import { fromJS } from 'immutable';
 
-import { LOAD_EVENTS, LOAD_EVENTS_SUCCESS, LOAD_EVENTS_ERROR  } from './constants';
+import { LOAD_EVENTS, LOAD_EVENTS_SUCCESS, LOAD_EVENTS_ERROR } from './constants';
 
 // The initial state of the App
 const initialState = fromJS({
@@ -18,21 +18,20 @@ const initialState = fromJS({
 
 function homeReducer(state = initialState, action) {
   switch (action.type) {
-
-    //UPCOMING EVENTS
+    // UPCOMING EVENTS
     case LOAD_EVENTS:
-    return state
-      .set('loading', true)
-      .set('error', false)
-      .set('events', false);
-  case LOAD_EVENTS_SUCCESS:
-    return state
-      .set('events', action.events)
-      .set('loading', false)
-  case LOAD_EVENTS_ERROR:
-    return state
-      .set('error', action.error)
-      .set('loading', false);
+      return state
+        .set('loading', true)
+        .set('error', false)
+        .set('events', false);
+    case LOAD_EVENTS_SUCCESS:
+      return state
+        .set('events', action.events)
+        .set('loading', false);
+    case LOAD_EVENTS_ERROR:
+      return state
+        .set('error', action.error)
+        .set('loading', false);
 
 
     default:

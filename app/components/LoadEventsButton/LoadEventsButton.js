@@ -1,24 +1,41 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from 'reactstrap';
+import React from "react";
+import { Collapse } from "react-collapse";
+// import EventsLoader from "components/EventsLoader";
 
-const MORE_EVENTS = '/upcoming';
+import "./style.scss";
 
-export default class NewLinkButton extends React.Component {
-    render() {
-        return (
-            <div className="load_button">
-                <Link to={MORE_EVENTS}>
-                    <Button
-                        outline color="info"
-                        onClick={val => {
-                            val.stopPropagation();
-                            this.props.onClick()
-                        }}>
-            LOAD MORE EVENTS
-          </Button>
-                </Link>
-            </div>
-        );
-    }
+export default class LoadEventsButton extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = { isOpened: false, height: 100, fixedHeight: 200 };
+  }
+
+  toggle() {
+    this.setState({
+      isOpened: !this.state.isOpened
+    });
+  }
+
+  render() {
+    const { isOpened, height, fixedHeight } = this.state;
+
+    return (
+      <div {...this.props}>
+        <div className="load_events">
+          <input
+            className="load_events__button"
+            type="button"
+            value="Load More Events"
+            onClick={this.toggle.bind(this)}
+          />
+        </div>
+
+        <Collapse isOpened={isOpened} fixedHeight={fixedHeight}>
+          <div style={{ height }} className="blob">
+            {/* <EventsLoader props={this.props} /> */}
+          </div>
+        </Collapse>
+      </div>
+    );
+  }
 }
