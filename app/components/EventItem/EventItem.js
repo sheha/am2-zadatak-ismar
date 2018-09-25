@@ -2,7 +2,7 @@ import React from "react";
 import '../EventsLoader/style.scss';
 
 class EventItem extends React.Component {
-    render() {
+  render() {
 
     return (
       <div className="events__item">

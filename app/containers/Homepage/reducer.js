@@ -1,42 +1,47 @@
-/*
- * HomeReducer
- */
-import { fromJS } from 'immutable';
+// /*
+//  * HomeReducer
+//  */
+// import { fromJS } from 'immutable';
 
-import { LOAD_EVENTS, LOAD_EVENTS_SUCCESS, LOAD_EVENTS_ERROR } from './constants';
+// import { LOAD_EVENTS, LOAD_EVENTS_SUCCESS, LOAD_EVENTS_ERROR } from '../App/constants';
 
-// The initial state of the App
-const initialState = fromJS({
-  loading: false,
-  error: false,
-  events: {
-  },
-  subscription: {
-  }
+// // The initial state of the App
+// const initialState = fromJS({
+//   loading: false,
+//   subscription: false,
+//   error: false,
+//   events: [],
 
-});
+// });
 
-function homeReducer(state = initialState, action) {
-  switch (action.type) {
-    // UPCOMING EVENTS
-    case LOAD_EVENTS:
-      return state
-        .set('loading', true)
-        .set('error', false)
-        .set('events', false);
-    case LOAD_EVENTS_SUCCESS:
-      return state
-        .set('events', action.events)
-        .set('loading', false);
-    case LOAD_EVENTS_ERROR:
-      return state
-        .set('error', action.error)
-        .set('loading', false);
+// function homeReducer(state = initialState, action) {
+//   switch (action.type) {
+//     // UPCOMING EVENTS
+//     case LOAD_EVENTS:
+//       return {
+//         ...state,
+//         loading: true,
+//       };
+//     case LOAD_EVENTS_SUCCESS:
+//       return {
+//         ...state,
+//         loading:false,
+//         events: action.payload,
+//         error: false
+//       };
+//     case LOAD_EVENTS_ERROR:
+//       return {
+//         ...state,
+//         loading: false,
+//         error: action.error
+//       };
 
 
-    default:
-      return state;
-  }
-}
+//     default:
+//       return {
+//         ...state,
+//       };
+//   }
+// }
 
-export default homeReducer;
+// export default homeReducer;

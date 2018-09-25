@@ -8,16 +8,21 @@ class EventsLoader extends React.Component {
     this.state = {};
   }
 
+
   // componentDidMount() {
-  //   this.props.onLoadMoreEventsClick();
+  //   this.props.loaded();
   // }
 
+
   render() {
+
+    //console.log(events)
+    console.log(this.state)
+    console.log(this.props)
     return (
       <div className="events__container">
         <div className="events__content">
           <EventItem />
-
         </div>
       </div>
     );

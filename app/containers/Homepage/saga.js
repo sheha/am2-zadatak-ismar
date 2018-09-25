@@ -4,10 +4,10 @@
 import request from 'utils/request';
 
 import {
-  call
+  call, all
   , put, select, takeLatest, takeEvery
 } from 'redux-saga/effects';
-import { LOAD_EVENTS } from './constants';
+import { LOAD_EVENTS } from '../App/constants';
 import { eventsLoaded, eventsLoadingError } from './actions';
 
 
@@ -15,20 +15,22 @@ export function* getEvents() {
   const requestURL = 'http://localhost:3001/events';
 
   try {
-    let events = yield call(request, requestURL);
-    //console.log(events)
-    yield call(eventsLoaded(events));
+    let data = yield call(request, requestURL);
+
+    yield put(eventsLoaded(data));
   } catch (err) {
-    // catches an [object Object] is not a function error from the saga watcher,
-    // because it is expecting a Iterable instead of Object - it's a version issue,     //  should be resolved in next versions of redux-saga
-    //
-    yield call(eventsLoadingError(err));
+    yield put(eventsLoadingError(err));
   }
 }
 
 /**
  * saga watchers
  */
+
+
+export  function* actionWatcher() {
+  yield takeLatest(LOAD_EVENTS, getEvents);
+}
 export default function* upcomingEventsData() {
-  yield takeEvery(LOAD_EVENTS, getEvents);
+  yield all([actionWatcher()]);
 }

@@ -4,23 +4,25 @@ import { createStructuredSelector } from 'reselect';
 import injectReducer from 'utils/injectReducer';
 import injectSaga from 'utils/injectSaga';
 
+
+import { loadEvents } from './actions';
 import {
   makeSelectLoading,
   makeSelectError
 } from '../App/selectors';
-import { loadEvents } from './actions';
-import { makeSelectEvents } from './selectors';
+import { makeSelectEvents} from '../App/selectors'
 
-import reducer from './reducer';
+import reducer from '../App/reducer';
 import saga from './saga';
 import HomePage from './HomePage';
 
 const mapDispatchToProps = (dispatch) => ({
 
   onLoadMoreEventsClick: (evt) => {
-    if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-    dispatch(loadEvents());
+      dispatch(loadEvents());
   }
+
+
 });
 
 const mapStateToProps = createStructuredSelector({
@@ -31,7 +33,7 @@ const mapStateToProps = createStructuredSelector({
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-const withReducer = injectReducer({ key: 'home', reducer });
+const withReducer = injectReducer({ key: 'app', reducer });
 const withSaga = injectSaga({ key: 'home', saga });
 
 export default compose(withReducer, withSaga, withConnect)(HomePage);

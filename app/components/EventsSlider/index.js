@@ -1,1 +1,2 @@
-export { default } from './EventsSlider';
+
+export { default } from "./EventsSlider";

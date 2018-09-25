@@ -34,7 +34,11 @@ export default class HomePage extends React.PureComponent {
   // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
     super(props);
-    this.state = { isCollapsed: false, height: 100, fixedHeight: 800 };
+    this.state = { isCollapsed: false };
+  }
+
+  componentDidMount() {
+    this.props.onLoadMoreEventsClick();
   }
 
   toggle() {
@@ -43,13 +47,11 @@ export default class HomePage extends React.PureComponent {
     });
   }
 
-  componentDidMount() {
-    this.props.onLoadMoreEventsClick();
-  }
   render() {
-    const { isCollapsed, height, fixedHeight } = this.state;
-    const { loading, error, events } = this.props;
-    //console.log(this.props)
+    console.log(this.props);
+    console.log(this.state);
+    const { isCollapsed, events } = this.state;
+
     return (
       <div className="root__container">
         <div className="slider__container">
@@ -81,7 +83,7 @@ export default class HomePage extends React.PureComponent {
 
             <Collapse isOpened={isCollapsed}>
               <div className="blob">
-                <EventsLoader loadedEvents={this.props.events} />
+                <EventsLoader loaded={this.props.events} />
               </div>
             </Collapse>
           </div>
