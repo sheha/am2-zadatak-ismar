@@ -1,0 +1,130 @@
+.events__container {
+    display: flex;
+    flex-direction: column;
+
+  .events__content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 2rem 8%;
+    background-color: #a9a9a92b;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .events__content {
+      padding: 2rem 5%;
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .events__content {
+      padding: 2rem 10%;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .events__content {
+      padding: 2rem 15%;
+    }
+  }
+
+  .events__content .events__item {
+    width: calc(30% - 16px);
+    margin: 1.5%;
+    padding: 8px;
+  }
+
+  .events__content .events__item:hover {
+    background-color: white;
+  }
+  @media screen and (max-width: 992px) {
+    .events__content .events__item {
+      width: calc(47% - 16px);
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .events__content .events__item {
+      width: calc(100% - 16px);
+    }
+  }
+  .events__content .events__item img {
+  width: 100%;
+  height: 7rem;
+}
+.events__content .events__item .events__item-info {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.events__content .events__item .events__item-info .events__item-info-time {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid gray;
+  padding-right: 8px;
+}
+
+.events__content
+  .events__item
+  .events__item-info
+  .events__item-info-time
+  .info-time-month {
+  font-size: 0.6rem;
+  color: grey;
+  display: block;
+}
+.events__content
+  .events__item
+  .events__item-info
+  .events__item-info-time
+  .info-time-date {
+  font-size: 1.7rem;
+  font-family: "Radikal-Light";
+}
+.events__content .events__item .events__item-info .events__item-info-place {
+  display: flex;
+  flex-direction: column;
+  flex: 5;
+  padding: 0 0.4rem;
+  max-width: 80%;
+}
+.events__content
+  .events__item
+  .events__item-info
+  .events__item-info-place
+  .info-place-title {
+  white-space: nowrap;
+  font-size: 1rem;
+  font-family: "Radikal";
+  font-weight: bold;
+  margin-bottom: 5px;
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+}
+
+.events__content
+  .events__item
+  .events__item-info
+  .events__item-info-place
+  .info-place-location {
+  display: flex;
+  font-size: 0.6rem;
+  font-family: "Radikal";
+  color: grey;
+  margin-bottom: 5px;
+}
+.events__content
+  .events__item
+  .events__item-info
+  .events__item-info-place
+  .info-place-city {
+  display: flex;
+  font-size: 0.7rem;
+  font-family: "Radikal";
+  color: grey;
+}
+}

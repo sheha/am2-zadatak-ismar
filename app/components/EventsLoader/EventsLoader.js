@@ -1,22 +1,26 @@
 import React from "react";
+import EventItem from "../EventItem";
 import "./style.scss";
 
 class EventsLoader extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isOpened: false, height: 100, fixedHeight: 200 };
+    this.state = {};
   }
 
-  componentDidMount() {
-    this.props.onLoadMoreEventsClick();
-  }
+  // componentDidMount() {
+  //   this.props.onLoadMoreEventsClick();
+  // }
 
   render() {
     return (
-      null
+      <div className="events__container">
+        <div className="events__content">
+          <EventItem />
 
-    )
-
+        </div>
+      </div>
+    );
   }
 }
 
