@@ -3,6 +3,7 @@ import { Collapse } from "react-collapse";
 
 import EventsSlider from "components/EventsSlider";
 import EventsLoader from "components/EventsLoader";
+import NewsLetterSubscriber from "components/NewsLetterSubscriber";
 import "./style.scss";
 
 import event1 from "./statics/event1.jpg";
@@ -48,10 +49,8 @@ export default class HomePage extends React.PureComponent {
   }
 
   render() {
-    console.log(this.props);
-    console.log(this.state);
     const { isCollapsed } = this.state;
-    const { loading, events } = this.props;
+    const { loading } = this.props;
     if (!loading) {
       return (
         <div className="root__container">
@@ -89,11 +88,12 @@ export default class HomePage extends React.PureComponent {
               </Collapse>
             </div>
           </section>
+          <NewsLetterSubscriber/>
+
+
         </div>
       );
-
     }
     return null;
-
   }
 }
