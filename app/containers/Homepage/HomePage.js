@@ -1,5 +1,6 @@
 import React from "react";
 import { Collapse } from "react-collapse";
+import Loader from 'react-loaders';
 
 import EventsSlider from "components/EventsSlider";
 import EventsLoader from "components/EventsLoader";
@@ -95,6 +96,6 @@ export default class HomePage extends React.PureComponent {
         </div>
       );
     }
-    return null;
+    return <Loader type="line-scale" active/>;
   }
 }
