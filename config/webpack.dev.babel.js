@@ -8,6 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 module.exports = require('./webpack.base.babel')({
+  context: path.resolve(__dirname, "app"),
   mode: 'development',
   // Add hot reloading in development
   entry: [

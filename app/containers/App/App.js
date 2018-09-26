@@ -6,7 +6,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import HomePage from '../HomePage/HomePage';
+import HomePage  from '../../containers/HomePage';
 import NotFoundPage from '../NotFoundPage/Loadable';
 import Header from '../../components/Header';
 

@@ -102,7 +102,8 @@ module.exports = (options) => ({
       '.js',
       '.jsx',
       '.scss',
-      '.react.js'
+      '.react.js',
+      '*'
     ],
     mainFields: [
       'browser',
