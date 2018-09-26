@@ -9,10 +9,10 @@ import { loadEvents } from './actions';
 import {
   makeSelectLoading,
   makeSelectError
-} from '../App/selectors';
-import { makeSelectEvents} from '../App/selectors'
+} from 'containers/App/selectors';
+import { makeSelectEvents} from 'containers/App/selectors'
 
-import reducer from '../App/reducer';
+import reducer from 'containers/App/reducer';
 import saga from './saga';
 import HomePage from './HomePage';
 
@@ -20,7 +20,7 @@ const mapDispatchToProps = (dispatch) => ({
 
   onLoadMoreEventsClick: (evt) => {
     if (evt !== undefined && evt.preventDefault) evt.preventDefault();
-      dispatch(loadEvents());
+    dispatch(loadEvents());
   }
 
 

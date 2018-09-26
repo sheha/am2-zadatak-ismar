@@ -8,13 +8,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 
 module.exports = require('./webpack.base.babel')({
-  context: path.resolve(__dirname, "app"),
+
   mode: 'development',
   // Add hot reloading in development
+  // entry: [
+  //   'eventsource-polyfill', // Necessary for hot reloading with IE
+  //   'webpack-hot-middleware/client?reload=true',
+  //   path.join(process.cwd(), 'app/app.js') // Start with js/app.js
+  // ],
   entry: [
-    'eventsource-polyfill', // Necessary for hot reloading with IE
-    'webpack-hot-middleware/client?reload=true',
-    path.join(process.cwd(), 'app/app.js') // Start with js/app.js
+    path.join(process.cwd(), 'app/app.js')
   ],
 
   // Don't use hashes in dev mode for better performance

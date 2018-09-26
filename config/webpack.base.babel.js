@@ -110,7 +110,11 @@ module.exports = (options) => ({
       'browser',
       'jsnext:main',
       'main'
-    ]
+    ],
+    alias: {
+      components: path.resolve('app/components/'),
+      containers: path.resolve('app/containers/')
+    }
   },
   devtool: options.devtool,
   target: 'web', // Make web variables accessible to webpack, e.g. window

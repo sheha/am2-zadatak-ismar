@@ -7,7 +7,7 @@ import {
   call, all
   , put, select, takeLatest, takeEvery
 } from 'redux-saga/effects';
-import { LOAD_EVENTS } from '../App/constants';
+import { LOAD_EVENTS } from 'containers/App/constants';
 import { eventsLoaded, eventsLoadingError } from './actions';
 
 

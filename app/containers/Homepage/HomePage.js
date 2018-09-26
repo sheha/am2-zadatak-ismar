@@ -1,11 +1,12 @@
 import React from "react";
 import { Collapse } from "react-collapse";
 
-import EventsSlider from "../../components/EventsSlider";
-import EventsLoader from "../../components/EventsLoader";
-import NewsLetterSubscriber from "../../components/NewsLetterSubscriber";
+import EventsSlider from "components/EventsSlider";
+import EventsLoader from "components/EventsLoader";
+import NewsLetterSubscriber from "components/NewsLetterSubscriber";
 import "./style.scss";
 
+//event jpegs
 import event1 from "./statics/event1.jpg";
 import event2 from "./statics/event4.jpg";
 import event3 from "./statics/event3.jpg";
