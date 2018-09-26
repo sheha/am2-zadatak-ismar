@@ -9,8 +9,8 @@ import "./style.scss";
 
 //event jpegs
 import event1 from "./statics/event1.jpg";
-import event2 from "./statics/event4.jpg";
-import event3 from "./statics/event3.jpg";
+import event2 from "./statics/event2.jpg";
+import event6 from "./statics/event6.jpg";
 
 const sliderPreload = [
   {
@@ -27,7 +27,7 @@ const sliderPreload = [
   },
   {
     id: 3,
-    imgurl: event3,
+    imgurl: event6,
     date: "May 29 2019",
     caption: "Event 3"
   }
