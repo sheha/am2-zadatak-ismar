@@ -19,6 +19,7 @@ import HomePage from './HomePage';
 const mapDispatchToProps = (dispatch) => ({
 
   onLoadMoreEventsClick: (evt) => {
+    if (evt !== undefined && evt.preventDefault) evt.preventDefault();
       dispatch(loadEvents());
   }
 
@@ -33,7 +34,7 @@ const mapStateToProps = createStructuredSelector({
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-const withReducer = injectReducer({ key: 'app', reducer });
+const withReducer = injectReducer({ key: 'home', reducer });
 const withSaga = injectSaga({ key: 'home', saga });
 
 export default compose(withReducer, withSaga, withConnect)(HomePage);
