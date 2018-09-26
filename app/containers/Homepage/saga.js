@@ -1,44 +1,36 @@
 /**
  *  get methods for mock api endpoints
  */
-
-import { call, put, select, takeLatest } from 'redux-saga/effects';
-import { LOAD_SLIDER_EVENTS, LOAD_EVENTS } from './constants';
-import { sliderEventsLoaded, sliderEventsLoadingError, eventsLoaded, eventsLoadingError } from './actions';
-
-
 import request from 'utils/request';
 
-export function* getSliderEvents() {
-  const requestURL =`http://localhost:3001/sliderEvents`;
+import {
+  call, all
+  , put, select, takeLatest, takeEvery
+} from 'redux-saga/effects';
+import { LOAD_EVENTS } from '../App/constants';
+import { eventsLoaded, eventsLoadingError } from './actions';
 
-  try {
-    const sliderEvents = yield call(request, requestURL);
-    yield get(sliderEventsLoaded(sliderEvents));
-  } catch (err) {
-    yield get(sliderEventsLoadingError(err));
-  }
-}
 
 export function* getEvents() {
-  const requestURL = `http://localhost:3001/events`;
+  const requestURL = 'http://localhost:3001/events';
 
   try {
-    const events = yield call(request, requestURL);
-    yield get(eventsLoaded(events));
+    let data = yield call(request, requestURL);
+
+    yield put(eventsLoaded(data));
   } catch (err) {
-    yield get(eventsLoadingError(err));
+    yield put(eventsLoadingError(err));
   }
 }
 
 /**
  * saga watchers
  */
-export function* upcomingEventsData() {
+
+
+export  function* actionWatcher() {
   yield takeLatest(LOAD_EVENTS, getEvents);
 }
-
-export function* sliderEventsData() {
-
-  yield takeLatest(LOAD_SLIDER_EVENTS, getSliderEvents);
+export default function* upcomingEventsData() {
+  yield all([actionWatcher()]);
 }

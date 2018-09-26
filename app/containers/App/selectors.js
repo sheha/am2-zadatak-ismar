@@ -2,31 +2,27 @@
  * The global state selectors
  */
 
-import { createSelector } from 'reselect';
+import { createSelector } from "reselect";
 
-const selectGlobal = (state) => state.get('global');
+const selectGlobal = (state) => state.get("global");
 
-const selectRoute = (state) => state.get('route');
+const selectRoute = (state) => state.get("route");
 
+const makeSelectError = () =>
+  createSelector(selectGlobal, (globalState) => globalState.error);
+const makeSelectLoading = () =>
+  createSelector(selectGlobal, (globalState) => globalState.loading);
 
-const makeSelectLoading = () => createSelector(
-  selectGlobal,
-  (globalState) => globalState.get('loading')
-);
+const makeSelectLocation = () =>
+  createSelector(selectRoute, (routeState) => routeState.get("location"));
 
-const makeSelectError = () => createSelector(
-  selectGlobal,
-  (globalState) => globalState.get('error')
-);
-
-const makeSelectLocation = () => createSelector(
-  selectRoute,
-  (routeState) => routeState.get('location').toJS()
-);
+const makeSelectEvents = () =>
+  createSelector(selectGlobal, (globalState) => globalState.events);
 
 export {
   selectGlobal,
   makeSelectLoading,
   makeSelectError,
   makeSelectLocation,
+  makeSelectEvents
 };

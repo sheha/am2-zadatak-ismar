@@ -1,17 +1,38 @@
 .header{
     display: flex;
-    margin-bottom: 1rem;
+    margin-bottom: 5px;
     margin-top: 3px;
+
     &__logo{
         display: flex;
         width: 50%;
         justify-content: center;
-        height: 3rem;
+        height: 4rem;
+        margin-left: 20%;
+        margin-top: 5px
+    }
+
+    &__spacing{
+        width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
 
     }
+
+    .mobile {
+        width: 90%;
+        height: 30px;
+    }
+    .mobile__nav{
+        width:70%;
+
+    }
+
     nav{
         display: flex;
         width: 50%;
+        justify-content: center;
+
         ul{
             display: flex;
             list-style: none;
@@ -21,20 +42,26 @@
             li{
                 display: flex;
                 align-items: center;
-                font-family: "radical-light";
-                font-size: 0.7rem;
+                font-family: "Radikal-Bold";
+                font-size: 1rem;
                 flex-grow: 1;
                 justify-content: center;
                 margin: 0 2%;
                 cursor: pointer;
+                a{
+                    font-family: "Radikal-Bold";
+                    color: #ff4868;
+                    text-decoration: none;
+
+                }
                 &.active{
                     color: #ff4868;
-                    border-top: 3px solid #ff4868;
+                    border-top: 10px solid #ff4868;
                     margin-top: -3px;
                 }
                 &:hover{
                     color: #ff4868;
-                    border-top: 3px solid #ff4868;
+                    border-top: 10px solid #ff4868;
                     margin-top: -3px;
                 }
             }

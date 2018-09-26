@@ -1,49 +1,99 @@
+import React from "react";
+import { Collapse } from "react-collapse";
 
-import React from 'react';
-import './style.scss';
+import EventsSlider from "components/EventsSlider";
+import EventsLoader from "components/EventsLoader";
+import NewsLetterSubscriber from "components/NewsLetterSubscriber";
+import "./style.scss";
 
-import { EventsSlider} from '../../components/EventsSlider/'
+import event1 from "./statics/event1.jpg";
+import event2 from "./statics/event4.jpg";
+import event3 from "./statics/event3.jpg";
 
+const sliderPreload = [
+  {
+    id: 1,
+    imgurl: event1,
+    date: "May 1 2019",
+    caption: "Event 1"
+  },
+  {
+    id: 2,
+    imgurl: event2,
+    date: "May 22 2019",
+    caption: "Event 2"
+  },
+  {
+    id: 3,
+    imgurl: event3,
+    date: "May 29 2019",
+    caption: "Event 3"
+  }
+];
 
-export default class Homepage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+export default class HomePage extends React.PureComponent {
+  // eslint-disable-line react/prefer-stateless-function
+  constructor(props) {
+    super(props);
+    this.state = { isCollapsed: false };
+  }
 
   componentDidMount() {
-      this.props.onHomePageLoad();
+    this.props.onLoadMoreEventsClick();
+  }
+
+  toggle() {
+    this.setState({
+      isCollapsed: !this.state.isCollapsed
+    });
   }
 
   render() {
-    const sliderPreload = false;
-    const { loading, error, sliderEvents } = this.props;
-
-
-    if (sliderEvents && sliderEvents.length > 1) {
-      sliderPreload = sliderEvents.map((slide, i) => {
-        return (
-          <div key={i} style={{ backgroundImage: `url(${slide.imgurl})` }}>{slide.caption}</div>
-        );
-      })
-    } else {
-      sliderPreload = <div><a>ERROR LOADING FROM MOCK API :</a>
-        <div>{error}</div>
-      </div>
-
-    }
-
-
-    return (
-      <div className="root__container">
-
-        <section class="slider__container">
-
-            <EventsSlider
-              loop={true}
-              showNav={false}
-              selected={1}>
-              {sliderPreload}
+    const { isCollapsed } = this.state;
+    const { loading } = this.props;
+    if (!loading) {
+      return (
+        <div className="root__container">
+          <div className="slider__container">
+            <EventsSlider loop showNav showArrows selected={0}>
+              {sliderPreload.map((slide, i) => (
+                <div
+                  key={i}
+                  style={{
+                    backgroundImage: `url(${slide.imgurl})`,
+                    backgroundSize: "cover",
+                    paddingTop: "10%",
+                    height: "0%"
+                  }}
+                />
+              ))}
             </EventsSlider>
-        </section>
-      </div>
+          </div>
 
-    );
+          <section className="">
+            <div>
+              <div className="load_events">
+                <input
+                  className="load_events__button"
+                  type="button"
+                  value="Load More Events"
+                  onClick={this.toggle.bind(this)}
+                />
+              </div>
+
+              <Collapse isOpened={isCollapsed}>
+                <div className="blob">
+                  <EventsLoader loaded={this.props.events} />
+                </div>
+              </Collapse>
+            </div>
+          </section>
+          <NewsLetterSubscriber/>
+
+
+        </div>
+      );
+    }
+    return null;
   }
 }

@@ -1,4 +1,5 @@
 .slider {
+  height: 100%;
   overflow: hidden;
   position: relative;
   display: -webkit-box;
@@ -46,6 +47,9 @@
           flex-grow: 1;
 }
 
+
+
+
 .slider__nav {
   -webkit-align-content: center;
       -ms-flex-line-pack: center;
@@ -58,7 +62,6 @@
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 10px;
   -webkit-box-ordinal-group: 3;
   -webkit-order: 2;
       -ms-flex-order: 2;
@@ -79,7 +82,7 @@
 }
 
 .slider__nav_button::after {
-  background: #345;
+  background: #ff4868;
   border-radius: 50%;
   content: '';
   display: block;

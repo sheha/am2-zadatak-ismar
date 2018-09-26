@@ -1,4 +1,20 @@
-//root__container
-.slider__container{
-  height: 25rem;
+.load_events {
+  width: 175px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+.load_events__button {
+  color: #0a0607;
+  font: 1em Radikal-Bold;
+  font-size: 85%;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid #0a0607;
+  cursor: pointer;
+  display: block;
+  width: 180px;
+}
+.load_events__button:hover {
+  background-color: #8e98a0;
 }

@@ -1,45 +1,48 @@
-
-
-import { fromJS } from 'immutable';
+/*
+ * HomeReducer
+ */
+import { fromJS } from "immutable";
 
 import {
-
-  SUBSCRIBE_NEWSLETTER,
-  SUBSCRIBE_NEWSLETTER_SUCCESS,
-  SUBSCRIBE_NEWSLETTER_ERROR
-} from './constants';
+  LOAD_EVENTS,
+  LOAD_EVENTS_SUCCESS,
+  LOAD_EVENTS_ERROR
+} from "./constants";
 
 // The initial state of the App
-const initialState = fromJS({
-  loading: false,
+const initialState = {
+  loading: true,
+  subscription: false,
   error: false,
-  subscription: {
-    email:false,
-  }
-});
+  events: []
+};
 
 function appReducer(state = initialState, action) {
   switch (action.type) {
-
-    //SUBSCRIPTION
-    case SUBSCRIBE_NEWSLETTER:
-    return state
-      .set('loading', true)
-      .set('error', false)
-      .setIn(['subscription', 'email'], false);
-  case SUBSCRIBE_NEWSLETTER_SUCCESS:
-    return state
-      .setIn(['subscription', 'email'],action.subscription)
-      .set('loading', false)
-      .set('subscriptionDone', true);
-  case SUBSCRIBE_NEWSLETTER_ERROR:
-    return state
-      .set('error', action.error)
-      .set('loading', false);
-
+    // UPCOMING EVENTS
+    case LOAD_EVENTS:
+      return {
+        ...state,
+        loading: true
+      };
+    case LOAD_EVENTS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        events: action.payload,
+        error: false
+      };
+    case LOAD_EVENTS_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: action.error
+      };
 
     default:
-      return state;
+      return {
+        ...state
+      };
   }
 }
 
