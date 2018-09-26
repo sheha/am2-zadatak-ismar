@@ -50,45 +50,50 @@ export default class HomePage extends React.PureComponent {
   render() {
     console.log(this.props);
     console.log(this.state);
-    const { isCollapsed, events } = this.state;
-
-    return (
-      <div className="root__container">
-        <div className="slider__container">
-          <EventsSlider loop showNav showArrows selected={0}>
-            {sliderPreload.map((slide, i) => (
-              <div
-                key={i}
-                style={{
-                  backgroundImage: `url(${slide.imgurl})`,
-                  backgroundSize: "cover",
-                  paddingTop: "10%",
-                  height: "0%"
-                }}
-              />
-            ))}
-          </EventsSlider>
-        </div>
-
-        <section className="">
-          <div>
-            <div className="load_events">
-              <input
-                className="load_events__button"
-                type="button"
-                value="Load More Events"
-                onClick={this.toggle.bind(this)}
-              />
-            </div>
-
-            <Collapse isOpened={isCollapsed}>
-              <div className="blob">
-                <EventsLoader loaded={this.props.events} />
-              </div>
-            </Collapse>
+    const { isCollapsed } = this.state;
+    const { loading, events } = this.props;
+    if (!loading) {
+      return (
+        <div className="root__container">
+          <div className="slider__container">
+            <EventsSlider loop showNav showArrows selected={0}>
+              {sliderPreload.map((slide, i) => (
+                <div
+                  key={i}
+                  style={{
+                    backgroundImage: `url(${slide.imgurl})`,
+                    backgroundSize: "cover",
+                    paddingTop: "10%",
+                    height: "0%"
+                  }}
+                />
+              ))}
+            </EventsSlider>
           </div>
-        </section>
-      </div>
-    );
+
+          <section className="">
+            <div>
+              <div className="load_events">
+                <input
+                  className="load_events__button"
+                  type="button"
+                  value="Load More Events"
+                  onClick={this.toggle.bind(this)}
+                />
+              </div>
+
+              <Collapse isOpened={isCollapsed}>
+                <div className="blob">
+                  <EventsLoader loaded={this.props.events} />
+                </div>
+              </Collapse>
+            </div>
+          </section>
+        </div>
+      );
+
+    }
+    return null;
+
   }
 }

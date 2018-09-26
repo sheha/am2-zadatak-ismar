@@ -10,12 +10,12 @@ import {
 } from "./constants";
 
 // The initial state of the App
-const initialState = fromJS({
-  loading: false,
+const initialState = {
+  loading: true,
   subscription: false,
   error: false,
   events: []
-});
+};
 
 function appReducer(state = initialState, action) {
   switch (action.type) {

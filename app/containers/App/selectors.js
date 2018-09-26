@@ -14,7 +14,7 @@ const makeSelectLoading = () =>
   createSelector(selectGlobal, (globalState) => globalState.loading);
 
 const makeSelectLocation = () =>
-  createSelector(selectRoute, (routeState) => routeState.get("location").toJS());
+  createSelector(selectRoute, (routeState) => routeState.get("location"));
 
 const makeSelectEvents = () =>
   createSelector(selectGlobal, (globalState) => globalState.events);

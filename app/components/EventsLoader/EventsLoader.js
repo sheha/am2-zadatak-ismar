@@ -1,6 +1,7 @@
 import React from "react";
-import EventItem from "../EventItem";
 import "./style.scss";
+
+const IMGPATH = './statics'
 
 class EventsLoader extends React.Component {
   constructor(props) {
@@ -9,20 +10,31 @@ class EventsLoader extends React.Component {
   }
 
 
-  // componentDidMount() {
-  //   this.props.loaded();
-  // }
-
-
   render() {
+    let { events } = this.props.loaded;
 
-    //console.log(events)
-    console.log(this.state)
-    console.log(this.props)
+
     return (
       <div className="events__container">
         <div className="events__content">
-          <EventItem />
+        {events.map((event, key) => (
+            <div key={key} className="events__item">
+              <img src={require( `${IMGPATH}`+`/`+`${event.imgurl}`)} alt="" />
+              <div className="events__item-info">
+                <div className="events__item-info-time">
+                  <span className="info-time-month"> {event.month}</span>
+                  <span className="info-time-date">{event.date}</span>
+                </div>
+                <div className="events__item-info-place">
+                  <span className="info-place-title">
+                    {event.name}
+                  </span>
+                  <span className="info-place-location">{event.address}</span>
+                  <span className="info-place-city">{`${event.city} ${event.region},${event.country}`}</span>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     );
