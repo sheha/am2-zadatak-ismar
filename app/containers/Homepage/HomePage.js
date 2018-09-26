@@ -37,7 +37,11 @@ export default class HomePage extends React.PureComponent {
   // eslint-disable-line react/prefer-stateless-function
   constructor(props) {
     super(props);
-    this.state = { isCollapsed: false };
+    this.state = {
+      isCollapsed: false,
+      buttonTxtClosed: 'Show Upcoming Events',
+      buttonTxtOpen: 'Close Upcoming Events'
+    };
   }
 
   componentDidMount() {
@@ -78,7 +82,7 @@ export default class HomePage extends React.PureComponent {
                 <input
                   className="load_events__button"
                   type="button"
-                  value="Load More Events"
+                  value={ isCollapsed ? this.state.buttonTxtOpen:this.state.buttonTxtClosed}
                   onClick={this.toggle.bind(this)}
                 />
               </div>
