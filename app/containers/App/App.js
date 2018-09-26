@@ -6,9 +6,9 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import HomePage from 'containers/HomePage';
-import NotFoundPage from 'containers/NotFoundPage/Loadable';
-import Header from 'components/Header';
+import HomePage from '../HomePage';
+import NotFoundPage from '../NotFoundPage/Loadable';
+import Header from '../../components/Header';
 
 import './style.scss';
 

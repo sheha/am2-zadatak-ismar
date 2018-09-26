@@ -18,7 +18,6 @@ Install the dependencies and devDependencies and start the server.
 #### dev mode
 ```sh
 $ yarn install
-$ yarn start:mockapi
 $ yarn start
 ```
 

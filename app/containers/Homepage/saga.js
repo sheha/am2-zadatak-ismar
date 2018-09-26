@@ -23,11 +23,6 @@ export function* getEvents() {
   }
 }
 
-/**
- * saga watchers
- */
-
-
 export  function* actionWatcher() {
   yield takeLatest(LOAD_EVENTS, getEvents);
 }
