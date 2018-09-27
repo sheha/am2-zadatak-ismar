@@ -8,7 +8,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 
 
-import HomePage  from 'containers/HomePage';
+import HomePage  from 'containers/Homepage';
 import NotFoundPage from 'containers/NotFoundPage';
 import Header from 'components/Header';
 
