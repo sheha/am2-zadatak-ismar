@@ -24,7 +24,7 @@
     "lint:eslint": "eslint --ignore-path .gitignore",
     "eslint:fix": "eslint -- . --ignore-path .gitignore --fix",
     "lint:js": "npm run lint:eslint -- . ",
-    "start:mockapi": " json-server --watch ./mock-api/db.json --port 3001"
+    "start:mockapi": " json-server --watch ./mock-api/db.json --port 3001 --host 0.0.0.0"
   },
   "dependencies": {
     "babel-polyfill": "6.26.0",
